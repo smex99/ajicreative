@@ -2,13 +2,13 @@ const initialState = { news: [] };
 
 type Action = {
 	type: string;
-	payload?: any;
+	payload: any[];
 };
 
 const newsReducer = (state = initialState, action: Action) => {
 	switch (action.type) {
-		case 'ADD_NEWS':
-			return { ...action.payload };
+		case 'SET_NEWS_FROM_API':
+			return { news: [...action.payload] };
 		default:
 			return state;
 	}

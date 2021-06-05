@@ -17,3 +17,10 @@ export const setUserInformations = (data: IUserInformations) => {
 		payload: data,
 	};
 };
+
+export const setNewsFromAPI = (data: any[]) => {
+	return {
+		type: 'SET_NEWS_FROM_API',
+		payload: data,
+	};
+};

@@ -11,21 +11,23 @@ const initialState: IAuthState = {
 interface IAuthState {
 	email: string;
 	accessCode: string;
-	user: {
-		firstName: string;
-		lastName: string;
-		email: string;
-	};
+	user: IUserSubscription;
+}
+
+interface IUserSubscription {
+	firstName: string;
+	lastName: string;
+	email: string;
 }
 
 interface IUserEmailAction {
 	type: 'USER_EMAIL';
-	payload: any;
+	payload: IUserSubscription;
 }
 
 interface IUserInformationsAction {
 	type: 'USER_INFORMATIONS';
-	payload: any;
+	payload: string;
 }
 
 type Action = IUserEmailAction | IUserInformationsAction;

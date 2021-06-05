@@ -50,8 +50,7 @@ const Inscription = () => {
 								configurer votre compte.
 							</div>
 
-							{/* Formulaire  */}
-							<div className='' style={{ padding: 16 }}>
+							<div style={{ padding: 16 }}>
 								<Form onSubmit={handleOnSubmit}>
 									<Form.Group>
 										<Form.Control

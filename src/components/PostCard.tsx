@@ -61,7 +61,7 @@ const PostCard: FC<IProps> = ({ article }) => {
 		<Card
 			style={{
 				marginBottom: 8,
-				height: 900,
+				height: 800,
 			}}
 		>
 			<Card.Header>
@@ -111,26 +111,20 @@ const PostCard: FC<IProps> = ({ article }) => {
 
 			<Card.Footer>
 				<div className='custom-card-footer' style={cardFooterStyle}>
-					<div className=''>
-						<span style={spanStyle}>
-							Partager
-							<i className='fa fa-share' style={{ margin: '0px 8px' }}></i>
-							149
-						</span>
-					</div>
+					<span style={spanStyle}>
+						Partager
+						<i className='fa fa-share' style={{ margin: '0px 8px' }}></i>
+						149
+					</span>
 
-					<div className='' style={{ marginLeft: 8 }}>
-						<span style={spanStyle}>
-							<i className='fa fa-heart' style={{ marginRight: 8 }}></i>
-							20 J'aimes
-						</span>
-					</div>
+					<span style={spanStyle}>
+						<i className='fa fa-heart' style={{ marginRight: 8 }}></i>
+						20 J'aimes
+					</span>
 
-					<div className='' style={{ marginLeft: 8 }}>
-						<button type='button' className='btn-custom'>
-							<i className='fa fa-microphone'></i> En parler
-						</button>
-					</div>
+					<button type='button' className='btn-custom'>
+						<i className='fa fa-microphone'></i> En parler
+					</button>
 				</div>
 			</Card.Footer>
 		</Card>

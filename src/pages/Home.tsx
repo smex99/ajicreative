@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { Card, Container, Row, Col, Form } from 'react-bootstrap';
 import PostCard from '../components/PostCard';
+import { setNewsFromAPI } from '../state/actions';
 import {
 	List,
 	AutoSizer,
@@ -14,19 +15,22 @@ import Navbar from '../components/layout/Navbar';
 
 const newsFeedStyle = {
 	width: 'auto',
-	height: '92vh',
+	height: '87vh',
 };
 
 const Home = () => {
+	const dispatch = useDispatch();
+
+	const news = useSelector((state: any) => state.newsReducer.news);
 	const lastName = useSelector((state: any) => state.authReducer.user.lastName);
 	const firstName = useSelector(
 		(state: any) => state.authReducer.user.firstName
 	);
-	const [news, setNews] = useState<any[]>([]);
+
 	const cache = useRef(
 		new CellMeasurerCache({
 			fixedWidth: true,
-			defaultHeight: 900,
+			defaultHeight: 800,
 		})
 	);
 
@@ -38,8 +42,7 @@ const Home = () => {
 		const { data } = await axios.get(
 			'https://newsapi.org/v2/top-headlines?country=ca&apiKey=a536d6b3ceac41bf96b44e1a137c0f93'
 		);
-
-		setNews(data.articles);
+		dispatch(setNewsFromAPI(data.articles));
 	};
 
 	return (
@@ -49,7 +52,7 @@ const Home = () => {
 			<div className='content'>
 				<Container>
 					<Row>
-						<Col xl='4' lg='3' md='6' sm='6'>
+						<Col xl='3' lg='3'>
 							<Card>
 								<Card.Header style={{ textAlign: 'center' }}>
 									<h6 style={{ fontWeight: 600 }}>
@@ -60,7 +63,13 @@ const Home = () => {
 							</Card>
 						</Col>
 
-						<Col xl='8' lg='6' md='8' sm='8'>
+						<Col xl='6' lg='6'>
+							<Form autoComplete='off'>
+								<Form.Group controlId='formBasicEmail'>
+									<Form.Control type='text' placeholder='Exprimez-vous' />
+								</Form.Group>
+							</Form>
+
 							<div style={newsFeedStyle}>
 								<AutoSizer>
 									{({ width, height }) => (
@@ -91,6 +100,15 @@ const Home = () => {
 									)}
 								</AutoSizer>
 							</div>
+						</Col>
+
+						<Col xl='3' lg='3'>
+							<Card>
+								<Card.Header style={{ textAlign: 'center' }}>
+									<h6 style={{ fontWeight: 600 }}>Right panel</h6>
+								</Card.Header>
+								<Card.Body></Card.Body>
+							</Card>
 						</Col>
 					</Row>
 				</Container>
