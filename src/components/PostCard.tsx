@@ -95,7 +95,7 @@ const PostCard: FC<IProps> = ({ article }) => {
 				<h6
 					style={{
 						fontWeight: 600,
-						fontSize: 18,
+						fontSize: 16,
 						marginBottom: 16,
 					}}
 				>
