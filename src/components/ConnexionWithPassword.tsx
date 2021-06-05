@@ -15,7 +15,6 @@ const ConnexionWithPassword = () => {
 
 	const handleOnSubmit = (event: any) => {
 		event.preventDefault();
-
 		history.push('/home');
 	};
 

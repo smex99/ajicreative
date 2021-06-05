@@ -2,8 +2,8 @@ const initialState: IAuthState = {
 	email: 'john.doe@email.com',
 	accessCode: '',
 	user: {
-		firstName: '',
-		lastName: '',
+		firstName: 'John',
+		lastName: 'Doe',
 		email: '',
 	},
 };

@@ -47,7 +47,7 @@ const CustomNavbar = () => {
 
 			<Nav className='mr-auto'>
 				<div className='app-title'>
-					<Navbar.Text style={{ color: 'white' }}>Actulaité</Navbar.Text>
+					<Navbar.Text style={{ color: 'white' }}>Actualité</Navbar.Text>
 				</div>
 			</Nav>
 
