@@ -53,19 +53,20 @@ const articleDescription = {
 	marginTop: 16,
 	color: 'grey',
 	fontWeight: 500,
+	fontSize: 14,
 	// textAlign: 'justify',
 };
 
-const PostCard: FC<IProps> = ({ article }) => {
+const Article: FC<IProps> = ({ article }) => {
 	return (
 		<Card
 			style={{
 				marginBottom: 8,
-				height: 800,
+				height: 750,
 			}}
 		>
 			<Card.Header>
-				<div className='' style={cardHeaderStyle}>
+				<div style={cardHeaderStyle}>
 					<div className='avatar' style={{ padding: 4 }}>
 						<img src={Avatar} alt='avatar' style={imgStyle} />
 					</div>
@@ -82,11 +83,11 @@ const PostCard: FC<IProps> = ({ article }) => {
 						</span>
 					</div>
 
-					<div className='' style={{ padding: 4 }}>
+					<div style={{ padding: 4 }}>
 						<span style={headerText}>{article.author}</span>
 					</div>
 
-					<div className='' style={{ padding: 4 }}>
+					<div style={{ padding: 4 }}>
 						<span style={headerText}>
 							{moment(article.publishedAt).calendar()}
 						</span>
@@ -131,4 +132,4 @@ const PostCard: FC<IProps> = ({ article }) => {
 	);
 };
 
-export default PostCard;
+export default Article;

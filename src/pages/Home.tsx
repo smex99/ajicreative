@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Card, Container, Row, Col, Form } from 'react-bootstrap';
 
 import { setNewsFromAPI } from '../state/actions';
-
+import Avatar from '../assets/avatar.jpg';
 import Feed from '../components/Feed';
 import Navbar from '../components/layout/Navbar';
 // import Sidebar from '../components/layout/Sidebar';
@@ -29,20 +29,27 @@ const Home: FC = () => {
 	};
 
 	return (
-		<div>
+		<>
 			<Navbar />
 			{/* <Sidebar /> */}
-			<div className='content'>
+			<div className='content' id='content'>
 				<Container>
 					<Row>
 						<Col xl='3' lg='3'>
-							<Card>
-								<Card.Header style={{ textAlign: 'center' }}>
+							<Card style={{ borderRadius: 7 }}>
+								{/* <Card.Header></Card.Header> */}
+								<Card.Body style={{ textAlign: 'center' }}>
+									<img
+										src={Avatar}
+										alt='avatar-img'
+										width='60'
+										height='60'
+										style={{ borderRadius: '50%', marginBottom: 8 }}
+									/>
 									<h6 style={{ fontWeight: 600 }}>
 										{firstName} {lastName}
 									</h6>
-								</Card.Header>
-								<Card.Body></Card.Body>
+								</Card.Body>
 							</Card>
 						</Col>
 
@@ -57,17 +64,17 @@ const Home: FC = () => {
 						</Col>
 
 						<Col xl='3' lg='3'>
-							<Card>
-								<Card.Header style={{ textAlign: 'center' }}>
-									<h6 style={{ fontWeight: 600 }}>Right panel</h6>
-								</Card.Header>
-								<Card.Body></Card.Body>
+							<Card style={{ borderRadius: 7 }}>
+								{/* <Card.Header style={{ textAlign: 'center' }}></Card.Header> */}
+								<Card.Body>
+									<h6 style={{ fontWeight: 600 }}>Recent activities</h6>
+								</Card.Body>
 							</Card>
 						</Col>
 					</Row>
 				</Container>
 			</div>
-		</div>
+		</>
 	);
 };
 

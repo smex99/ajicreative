@@ -6,7 +6,7 @@ import {
 	CellMeasurer,
 	CellMeasurerCache,
 } from 'react-virtualized';
-import PostCard from './PostCard';
+import Article from './Article';
 
 const newsFeedStyle = {
 	width: 'auto',
@@ -19,7 +19,7 @@ const Feed: FC = () => {
 	const cache = useRef(
 		new CellMeasurerCache({
 			fixedWidth: true,
-			defaultHeight: 800,
+			defaultHeight: 750,
 		})
 	);
 
@@ -45,7 +45,7 @@ const Feed: FC = () => {
 									rowIndex={index}
 								>
 									<div key={key} style={style}>
-										<PostCard article={article} />
+										<Article article={article} />
 									</div>
 								</CellMeasurer>
 							);
